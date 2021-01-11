@@ -1,0 +1,37 @@
+* Tagsh
+
+A simple =bash= file-tagging system
+
+** Usage
+Basic usage is =tagsh <file> <tag>=, which creates a symlink from 
+=file= to =tag/file=.
+
+** Heuristics
+*** Motivation
+I wanted to write this because, when dealing with ebooks, I usually have
+trouble deciding where to put an ebook. For example, I might've gotten a book
+from Humble Bundle, but its topic was Haskell. Maybe I have a bunch of web
+development books for different languages. 
+
+In any case, we would like to describe the books in all ways, without having to 
+manually copying the file or creating the symlinks. Additionally, the symlink creation
+should have a given, chosen and enforced (or suggested) heuristic, so that it may
+be consistent.
+
+*** TODOs and interesting questions
+1. *How do we deal with nested structures?*
+   This means that, for example, we may want to organize something
+   according to two categories. For a book, we would like to navigate
+   to =authors/author_name= as opposed to having all the author names
+   and other /types/ of tags.
+
+2. *Multi-context vs Global context*
+   Not all files are made equal. I don't necessarily want to mix my books with my
+   schoolwork or my projects, to name an example. There are certain directories
+   where the tag system is useful and where it would make sense to have a 
+   "repository" of files. 
+
+   The problem with this is that we need to come up with a way to specify
+   where to create the links. The easiest (and current) heuristic is to create
+   the tag directory in the directory from which =tagsh= was called.
+
